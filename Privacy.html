@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Baird Medical Centre | Uitenhage</title>
+  <meta name="description" content="Privacy Policy for Baird Medical Centre — how we collect, use, and protect your personal information in accordance with POPIA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark:  #1C4532;
+      --green-mid:   #276045;
+      --green-light: #D1E8D9;
+      --gold:        #B8960C;
+      --gold-light:  #F0E4A0;
+      --ivory:       #FAF7F2;
+      --ivory-dark:  #EDE8DF;
+      --text-dark:   #1A1A1A;
+      --text-mid:    #3D4D3A;
+      --radius:      6px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--ivory); color: var(--text-dark); line-height: 1.7; }
+    a { text-decoration: none; color: var(--green-mid); }
+    a:hover { text-decoration: underline; }
+
+    nav { background: var(--green-dark); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.18); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
+    .nav-logo { width: 44px; height: 44px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--green-dark); }
+    .nav-name strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: #fff; }
+    .nav-name span { font-size: 0.72rem; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; }
+    .nav-links { display: flex; }
+    .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.82rem; padding: 10px 14px; border-radius: var(--radius); transition: background 0.2s; text-decoration: none; }
+    .nav-links a:hover { background: var(--green-mid); color: #fff; }
+    .nav-cta { background: var(--gold); color: var(--green-dark) !important; font-weight: 500; margin-left: 8px; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: var(--green-dark); padding: 12px 5% 20px; }
+    .mobile-menu a { color: rgba(255,255,255,0.9); padding: 10px 0; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.08); text-decoration: none; }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
+
+    .page-header { background: var(--green-dark); color: #fff; padding: 52px 5% 44px; }
+    .page-header .breadcrumb { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+    .page-header .breadcrumb a { color: var(--gold-light); text-decoration: none; }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; }
+    .page-header p { margin-top: 8px; color: rgba(255,255,255,0.7); font-size: 0.88rem; }
+
+    /* POLICY CONTENT */
+    .policy-wrap { max-width: 800px; margin: 0 auto; padding: 64px 5%; }
+    .policy-intro { background: var(--green-light); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 40px; }
+    .policy-intro p { font-size: 0.88rem; color: var(--green-dark); }
+    .policy-section { margin-bottom: 40px; }
+    .policy-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--green-dark); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--green-light); }
+    .policy-section p { font-size: 0.9rem; color: var(--text-mid); margin-bottom: 12px; font-weight: 300; }
+    .policy-section ul { padding-left: 20px; margin-bottom: 12px; }
+    .policy-section li { font-size: 0.9rem; color: var(--text-mid); margin-bottom: 6px; font-weight: 300; }
+    .policy-section strong { font-weight: 500; color: var(--text-dark); }
+
+    footer { background: #111D16; color: rgba(255,255,255,0.7); padding: 32px 5% 20px; }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; margin-bottom: 24px; }
+    .footer-links h4 { color: #fff; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.65); text-decoration: none; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px; font-size: 0.75rem; text-align: center; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">B</div>
+    <div class="nav-name">
+      <strong>Baird Medical Centre</strong>
+      <span>Uitenhage · Eastern Cape</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="appointments.html" class="nav-cta">Book Appointment</a>
+  </div>
+  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="appointments.html">Book Appointment</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Privacy Policy</div>
+  <h1>Privacy Policy</h1>
+  <p>Last updated: January 2025</p>
+</div>
+
+<div class="policy-wrap">
+  <div class="policy-intro">
+    <p><strong>Your privacy matters to us.</strong> This policy explains how Baird Medical Centre collects, uses, stores, and protects your personal information in accordance with the Protection of Personal Information Act, No. 4 of 2013 (POPIA) and applicable HPCSA guidelines.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>1. Who We Are</h2>
+    <p><strong>Baird Medical Centre</strong> is a registered general medical practice located at 146 Acacia Street, Rosedale, Uitenhage, Eastern Cape. We are a responsible party as defined under POPIA and are committed to protecting the personal information of all patients and visitors.</p>
+    <p><strong>Contact:</strong> <a href="mailto:ikponmwosai185@gmail.com">ikponmwosai185@gmail.com</a> | 063 004 4 | 041 988 111</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>2. Information We Collect</h2>
+    <p>We collect personal information only where it is necessary for providing healthcare services. This may include:</p>
+    <ul>
+      <li>Full name, date of birth, gender, and identity number</li>
+      <li>Contact details including address, phone number, and email address</li>
+      <li>Medical history, current medications, allergies, and clinical notes</li>
+      <li>Medical aid or health insurance information</li>
+      <li>Information shared during consultations, assessments, and treatments</li>
+      <li>Referral or previous healthcare provider information</li>
+    </ul>
+    <p>We also collect information when you contact us by phone, WhatsApp, or email for the purpose of scheduling appointments.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>3. How We Use Your Information</h2>
+    <p>Your personal information is used solely for the following legitimate purposes:</p>
+    <ul>
+      <li>Providing clinical care, diagnosis, treatment, and follow-up</li>
+      <li>Maintaining accurate patient health records</li>
+      <li>Processing medical aid claims and billing</li>
+      <li>Communicating appointment reminders and health-related information</li>
+      <li>Complying with legal and regulatory obligations (HPCSA, POPIA)</li>
+      <li>Referral to other healthcare providers where clinically necessary</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>4. Confidentiality of Health Records</h2>
+    <p>All health information is treated as strictly confidential. Clinical records are maintained securely and are only accessible to authorised personnel directly involved in your care. We do not share your health information with third parties without your explicit consent, except where required by law (e.g. notifiable medical conditions, court orders).</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>5. Storage and Security</h2>
+    <p>We take reasonable technical and organisational measures to protect your personal information from loss, misuse, unauthorised access, disclosure, alteration, or destruction. Patient records are stored securely and retained in accordance with HPCSA guidelines (minimum six years from the date of last entry or until the patient turns 21 years of age, whichever is later).</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>6. Sharing of Information</h2>
+    <p>We do not sell, rent, or trade your personal information. We may share information only in the following circumstances:</p>
+    <ul>
+      <li>With other healthcare providers for the purpose of your ongoing care (with your consent)</li>
+      <li>With medical aid schemes for billing purposes</li>
+      <li>As required by law, regulation, or court order</li>
+      <li>To report notifiable conditions to public health authorities</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>7. Your Rights Under POPIA</h2>
+    <p>As a data subject, you have the right to:</p>
+    <ul>
+      <li>Access your personal information held by us</li>
+      <li>Request correction of inaccurate or incomplete information</li>
+      <li>Object to the processing of your personal information</li>
+      <li>Request deletion of your personal information, subject to legal retention requirements</li>
+      <li>Lodge a complaint with the Information Regulator of South Africa</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us at <a href="mailto:ikponmwosai185@gmail.com">ikponmwosai185@gmail.com</a>.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>8. Cookies and Website Analytics</h2>
+    <p>This website may use basic analytics tools to understand how visitors interact with our content (e.g. pages visited, device type). This data is anonymous and aggregated. No personally identifiable information is collected through website analytics. You may disable cookies through your browser settings.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>9. Children's Information</h2>
+    <p>We provide healthcare services to patients of all ages. When treating minors, we collect only the information necessary for clinical care, and consent is obtained from a parent or guardian as required by law.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in legislation or practice. The most current version will always be available on this website. Significant changes will be communicated to registered patients.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>11. Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or the handling of your personal information, please contact:</p>
+    <p>
+      <strong>Baird Medical Centre</strong><br />
+      146 Acacia Street, Rosedale, Uitenhage, Eastern Cape, 6230<br />
+      Email: <a href="mailto:ikponmwosai185@gmail.com">ikponmwosai185@gmail.com</a><br />
+      Tel: 063 004 4 | 041 988 111
+    </p>
+    <p>You may also lodge a complaint with the <strong>Information Regulator (South Africa)</strong>:<br />
+    Website: <a href="https://www.justice.gov.za/inforeg/" target="_blank" rel="noopener">www.justice.gov.za/inforeg</a><br />
+    Email: inforeg@justice.gov.za</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointments.html">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0630044">063 004 4</a></li>
+        <li><a href="tel:041988111">041 988 111</a></li>
+        <li><a href="mailto:ikponmwosai185@gmail.com">ikponmwosai185@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Baird Medical Centre. HPCSA Registered Practice. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
