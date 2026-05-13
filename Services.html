@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Baird Medical Centre | Uitenhage</title>
+  <meta name="description" content="Baird Medical Centre offers 22+ primary healthcare services in Rosedale, Uitenhage — including chronic disease management, antenatal care, HIV testing, PDP assessments, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark:  #1C4532;
+      --green-mid:   #276045;
+      --green-light: #D1E8D9;
+      --gold:        #B8960C;
+      --gold-light:  #F0E4A0;
+      --ivory:       #FAF7F2;
+      --ivory-dark:  #EDE8DF;
+      --text-dark:   #1A1A1A;
+      --text-mid:    #3D4D3A;
+      --radius:      6px;
+      --shadow:      0 4px 24px rgba(28,69,50,0.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--ivory); color: var(--text-dark); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    nav { background: var(--green-dark); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.18); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
+    .nav-logo { width: 44px; height: 44px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--green-dark); }
+    .nav-name strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: #fff; }
+    .nav-name span { font-size: 0.72rem; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; }
+    .nav-links { display: flex; }
+    .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.82rem; padding: 10px 14px; border-radius: var(--radius); transition: background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { background: var(--green-mid); color: #fff; }
+    .nav-cta { background: var(--gold); color: var(--green-dark) !important; font-weight: 500; margin-left: 8px; }
+    .nav-cta:hover { background: #d4ab14 !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: var(--green-dark); padding: 12px 5% 20px; }
+    .mobile-menu a { color: rgba(255,255,255,0.9); padding: 10px 0; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
+
+    .page-header { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%); color: #fff; padding: 64px 5% 56px; }
+    .page-header .breadcrumb { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+    .page-header .breadcrumb a { color: var(--gold-light); }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; }
+    .page-header p { margin-top: 10px; color: rgba(255,255,255,0.8); max-width: 520px; font-weight: 300; }
+
+    section { padding: 72px 5%; }
+    .section-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 8px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 600; color: var(--green-dark); line-height: 1.2; margin-bottom: 16px; }
+
+    /* SERVICE CATEGORIES */
+    .cat-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+    .cat-tab { padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; border: 1.5px solid var(--green-light); color: var(--green-dark); cursor: pointer; transition: all 0.2s; background: none; }
+    .cat-tab.active, .cat-tab:hover { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
+
+    .services-full { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+    .srv {
+      background: #fff; border-radius: var(--radius); padding: 22px 22px 22px 56px;
+      position: relative; box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-left: 3px solid var(--green-light);
+    }
+    .srv:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(28,69,50,0.14); border-left-color: var(--green-mid); }
+    .srv-num {
+      position: absolute; left: 16px; top: 22px;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--green-light); color: var(--green-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 500;
+    }
+    .srv h3 { font-size: 0.92rem; font-weight: 500; color: var(--text-dark); margin-bottom: 4px; font-family: 'DM Sans', sans-serif; }
+    .srv p { font-size: 0.8rem; color: var(--text-mid); font-weight: 300; }
+
+    /* FREE SERVICE BADGE */
+    .srv.free-badge::after {
+      content: 'FREE';
+      position: absolute; top: 14px; right: 14px;
+      background: var(--gold); color: var(--green-dark);
+      font-size: 0.62rem; font-weight: 500; padding: 2px 8px;
+      border-radius: 10px; letter-spacing: 0.5px;
+    }
+
+    .srv.highlight { border-left-color: var(--gold); }
+    .srv.highlight .srv-num { background: var(--gold-light); }
+
+    /* NOTICE BOX */
+    .notice { background: var(--green-light); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 40px; }
+    .notice p { font-size: 0.88rem; color: var(--green-dark); }
+    .notice strong { font-weight: 500; }
+
+    /* CTA */
+    .cta-banner { background: var(--green-dark); color: #fff; text-align: center; padding: 64px 5%; }
+    .cta-banner h2 { color: #fff; margin-bottom: 12px; }
+    .cta-banner p { color: rgba(255,255,255,0.8); max-width: 480px; margin: 0 auto 32px; font-weight: 300; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .btn-primary { background: var(--gold); color: var(--green-dark); padding: 13px 28px; border-radius: var(--radius); font-weight: 500; font-size: 0.92rem; transition: background 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary:hover { background: #d4ab14; }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,0.5); color: #fff; padding: 13px 28px; border-radius: var(--radius); font-size: 0.92rem; transition: border-color 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    footer { background: #111D16; color: rgba(255,255,255,0.7); padding: 32px 5% 20px; }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; margin-bottom: 24px; }
+    .footer-links h4 { color: #fff; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px; font-size: 0.75rem; text-align: center; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">B</div>
+    <div class="nav-name">
+      <strong>Baird Medical Centre</strong>
+      <span>Uitenhage · Eastern Cape</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="appointments.html" class="nav-cta">Book Appointment</a>
+  </div>
+  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="appointments.html">Book Appointment</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Services</div>
+  <h1>Our Clinical Services</h1>
+  <p>Comprehensive primary healthcare for individuals and families — all under one roof in Rosedale, Uitenhage.</p>
+</div>
+
+<section>
+  <div class="notice">
+    <p><strong>✚ Walk-ins Welcome.</strong> No appointment necessary for most services. For assessments (PDP, Disability Grant, Pre-Marital), please call ahead to confirm availability. Free Blood Pressure checks are available during all operating hours.</p>
+  </div>
+
+  <div class="section-label">22 Services Available</div>
+  <h2>What We Offer</h2>
+  <p style="color:var(--text-mid);font-weight:300;margin-bottom:36px;max-width:600px">We provide a wide range of evidence-based primary care services to meet the diverse health needs of our patients and community.</p>
+
+  <div class="services-full">
+
+    <div class="srv">
+      <div class="srv-num">1</div>
+      <h3>Medical Consultation &amp; Care Plan</h3>
+      <p>Comprehensive consultations for adults and children, including personalised care planning.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">2</div>
+      <h3>Management of Common Medical Conditions</h3>
+      <p>Diagnosis and treatment of everyday illnesses, infections, and acute health complaints.</p>
+    </div>
+
+    <div class="srv highlight">
+      <div class="srv-num">3</div>
+      <h3>Hypertension, Diabetes, HIV &amp; TB Management</h3>
+      <p>Ongoing care and monitoring for patients living with chronic conditions.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">4</div>
+      <h3>Management of Sexually Transmitted Infections</h3>
+      <p>Confidential screening, diagnosis, and treatment of STIs.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">5</div>
+      <h3>Medical Check-Up</h3>
+      <p>General health assessments and wellness screenings for all age groups.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">6</div>
+      <h3>HIV Counselling &amp; Testing</h3>
+      <p>Voluntary, confidential HIV testing with pre- and post-test counselling.</p>
+    </div>
+
+    <div class="srv highlight">
+      <div class="srv-num">7</div>
+      <h3>Antenatal Care</h3>
+      <p>Comprehensive care for pregnant women throughout pregnancy — monitoring, advice, and support.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">8</div>
+      <h3>Ultrasound Scan (Sonar)</h3>
+      <p>In-practice diagnostic ultrasound imaging available on-site.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">9</div>
+      <h3>Men's Clinic</h3>
+      <p>Dedicated services addressing men's health needs including screening, counselling, and treatment.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">10</div>
+      <h3>Family Planning &amp; Contraception</h3>
+      <p>Counselling and access to a full range of contraceptive options.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">11</div>
+      <h3>Women's Clinic</h3>
+      <p>Specialised services for women's health including gynaecological care and wellness.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">12</div>
+      <h3>Male Medical Circumcision</h3>
+      <p>Safe, clinical circumcision services performed by our registered medical doctor.</p>
+    </div>
+
+    <div class="srv highlight">
+      <div class="srv-num">13</div>
+      <h3>Professional Driving Permit (PDP) Assessment</h3>
+      <p>DLTC-recognised medical fitness assessments for PDP applications and renewals.</p>
+    </div>
+
+    <div class="srv highlight">
+      <div class="srv-num">14</div>
+      <h3>Disability Grant Assessment (SASSA)</h3>
+      <p>Medico-legal assessments to support SASSA disability grant applications.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">15</div>
+      <h3>Pre-Marital Consultation</h3>
+      <p>Health assessments and counselling for couples preparing for marriage.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">16</div>
+      <h3>Medical Fitness Assessment</h3>
+      <p>Occupational and general fitness-to-work or fitness-to-participate certificates.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">17</div>
+      <h3>Minor Clinical Procedures</h3>
+      <p>In-practice procedures including wound care, suturing, and minor excisions.</p>
+    </div>
+
+    <div class="srv highlight">
+      <div class="srv-num">18</div>
+      <h3>PrEP &amp; PEP for HIV</h3>
+      <p>Pre-Exposure and Post-Exposure Prophylaxis to prevent HIV infection.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">19</div>
+      <h3>Pregnancy, Glucose, HIV &amp; Urine Tests</h3>
+      <p>On-site rapid testing for a range of common health indicators.</p>
+    </div>
+
+    <div class="srv">
+      <div class="srv-num">20</div>
+      <h3>PAP Smear for Cervical Cancer</h3>
+      <p>Cervical cancer screening for eligible women — early detection saves lives.</p>
+    </div>
+
+    <div class="srv free-badge">
+      <div class="srv-num">21</div>
+      <h3>Blood Pressure Check</h3>
+      <p>Free blood pressure measurement available during all operating hours. No appointment needed.</p>
+    </div>
+
+    <div class="srv highlight">
+      <div class="srv-num">22</div>
+      <h3>Virtual Consultation</h3>
+      <p>Telephone or video consultations available — speak to our doctor remotely when you can't come in.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-banner">
+  <h2>Need to See Us?</h2>
+  <p>Walk in during our operating hours or contact us to arrange an appointment for any of the above services.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/270630044" class="btn-primary">💬 WhatsApp Us</a>
+    <a href="appointments.html" class="btn-outline">Book Appointment →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointments.html">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0630044">063 004 4</a></li>
+        <li><a href="tel:041988111">041 988 111</a></li>
+        <li><a href="mailto:ikponmwosai185@gmail.com">ikponmwosai185@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Baird Medical Centre. HPCSA Registered Practice. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
