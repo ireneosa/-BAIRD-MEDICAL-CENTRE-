@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Location | Baird Medical Centre | Uitenhage</title>
+  <meta name="description" content="Contact Baird Medical Centre in Rosedale, Uitenhage. Call, WhatsApp, or email us. Find our address and operating hours." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark:  #1C4532;
+      --green-mid:   #276045;
+      --green-light: #D1E8D9;
+      --gold:        #B8960C;
+      --gold-light:  #F0E4A0;
+      --ivory:       #FAF7F2;
+      --ivory-dark:  #EDE8DF;
+      --text-dark:   #1A1A1A;
+      --text-mid:    #3D4D3A;
+      --radius:      6px;
+      --shadow:      0 4px 24px rgba(28,69,50,0.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--ivory); color: var(--text-dark); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    nav { background: var(--green-dark); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.18); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
+    .nav-logo { width: 44px; height: 44px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--green-dark); }
+    .nav-name strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: #fff; }
+    .nav-name span { font-size: 0.72rem; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; }
+    .nav-links { display: flex; }
+    .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.82rem; padding: 10px 14px; border-radius: var(--radius); transition: background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { background: var(--green-mid); color: #fff; }
+    .nav-cta { background: var(--gold); color: var(--green-dark) !important; font-weight: 500; margin-left: 8px; }
+    .nav-cta:hover { background: #d4ab14 !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: var(--green-dark); padding: 12px 5% 20px; }
+    .mobile-menu a { color: rgba(255,255,255,0.9); padding: 10px 0; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
+
+    .page-header { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%); color: #fff; padding: 64px 5% 56px; }
+    .page-header .breadcrumb { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+    .page-header .breadcrumb a { color: var(--gold-light); }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; }
+    .page-header p { margin-top: 10px; color: rgba(255,255,255,0.8); max-width: 520px; font-weight: 300; }
+
+    section { padding: 72px 5%; }
+    .section-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 8px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 600; color: var(--green-dark); line-height: 1.2; margin-bottom: 24px; }
+
+    /* CONTACT GRID */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .contact-cards { display: flex; flex-direction: column; gap: 16px; }
+    .contact-card {
+      background: #fff; border-radius: var(--radius); padding: 24px 24px 24px 70px;
+      position: relative; box-shadow: var(--shadow);
+    }
+    .contact-card .c-icon {
+      position: absolute; left: 20px; top: 22px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--green-light); display: flex; align-items: center;
+      justify-content: center; font-size: 1rem;
+    }
+    .contact-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--green-dark); margin-bottom: 6px; }
+    .contact-card p, .contact-card a { font-size: 0.88rem; color: var(--text-mid); display: block; margin-bottom: 2px; }
+    .contact-card a:hover { color: var(--green-dark); }
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #25D366; color: #fff; border-radius: var(--radius);
+      padding: 10px 20px; font-size: 0.88rem; font-weight: 500;
+      margin-top: 8px; transition: background 0.2s;
+    }
+    .whatsapp-btn:hover { background: #1da355; }
+
+    /* HOURS TABLE */
+    .hours-card {
+      background: var(--green-dark); border-radius: var(--radius);
+      padding: 28px 28px; color: #fff;
+    }
+    .hours-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 20px; }
+    .hours-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.88rem; }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { color: rgba(255,255,255,0.7); }
+    .hours-row .time { font-weight: 500; }
+    .hours-row .time.closed { color: rgba(255,255,255,0.4); font-style: italic; font-weight: 400; }
+    .hours-note { margin-top: 18px; background: rgba(255,255,255,0.08); border-radius: var(--radius); padding: 12px 16px; font-size: 0.8rem; color: rgba(255,255,255,0.75); }
+
+    /* MAP PLACEHOLDER */
+    .map-section { background: var(--ivory-dark); padding: 56px 5%; }
+    .map-inner { max-width: 900px; }
+    .map-embed {
+      width: 100%; height: 380px; border-radius: 10px;
+      border: none; box-shadow: var(--shadow);
+    }
+    .map-address {
+      margin-top: 20px; display: flex; align-items: flex-start; gap: 14px;
+      background: #fff; border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow);
+    }
+    .map-address .icon { font-size: 1.3rem; margin-top: 2px; }
+    .map-address p { font-size: 0.88rem; color: var(--text-mid); }
+    .map-address strong { color: var(--green-dark); display: block; margin-bottom: 4px; }
+    .directions-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green-dark); color: #fff; border-radius: var(--radius);
+      padding: 9px 18px; font-size: 0.82rem; font-weight: 500; margin-top: 10px;
+      transition: background 0.2s;
+    }
+    .directions-btn:hover { background: var(--green-mid); }
+
+    footer { background: #111D16; color: rgba(255,255,255,0.7); padding: 32px 5% 20px; }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; margin-bottom: 24px; }
+    .footer-links h4 { color: #fff; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px; font-size: 0.75rem; text-align: center; }
+
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">B</div>
+    <div class="nav-name">
+      <strong>Baird Medical Centre</strong>
+      <span>Uitenhage · Eastern Cape</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="appointments.html" class="nav-cta">Book Appointment</a>
+  </div>
+  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="appointments.html">Book Appointment</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Contact &amp; Location</div>
+  <h1>Contact &amp; Location</h1>
+  <p>We're conveniently located in Rosedale, Uitenhage. Get in touch by phone, WhatsApp, or email.</p>
+</div>
+
+<section>
+  <div class="contact-grid">
+    <div class="contact-cards">
+      <div class="section-label">Get In Touch</div>
+      <h2>We're Here to Help</h2>
+
+      <div class="contact-card">
+        <div class="c-icon">📞</div>
+        <h3>Phone</h3>
+        <a href="tel:0630044">063 004 4</a>
+        <a href="tel:041988111">041 988 111</a>
+        <a class="whatsapp-btn" href="https://wa.me/270630044">💬 WhatsApp: 063 004 4</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="c-icon">📧</div>
+        <h3>Email</h3>
+        <a href="mailto:ikponmwosai185@gmail.com">ikponmwosai185@gmail.com</a>
+        <p style="font-size:0.78rem;margin-top:6px;color:#888">We aim to respond within one business day.</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="c-icon">📍</div>
+        <h3>Address</h3>
+        <p>146 Acacia Street</p>
+        <p>Rosedale, Uitenhage</p>
+        <p>Eastern Cape, 6230</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="hours-card">
+        <h3>⏱ Opening Hours</h3>
+        <div class="hours-row"><span class="day">Monday</span><span class="time">09:00 – 17:00</span></div>
+        <div class="hours-row"><span class="day">Tuesday</span><span class="time">09:00 – 17:00</span></div>
+        <div class="hours-row"><span class="day">Wednesday</span><span class="time">09:00 – 17:00</span></div>
+        <div class="hours-row"><span class="day">Thursday</span><span class="time">09:00 – 17:00</span></div>
+        <div class="hours-row"><span class="day">Friday</span><span class="time">09:00 – 17:00</span></div>
+        <div class="hours-row"><span class="day">Saturday</span><span class="time">09:00 – 13:00</span></div>
+        <div class="hours-row"><span class="day">Sunday</span><span class="time closed">Closed</span></div>
+        <div class="hours-note">✚ Walk-ins are welcome during all operating hours. For PDP, Disability Grant, and Pre-Marital assessments, please call ahead to confirm availability.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-section">
+  <div class="section-label">Find Us</div>
+  <h2>Our Location</h2>
+  <div class="map-inner">
+    <iframe
+      class="map-embed"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.5!2d25.397!3d-33.757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDQ1JzI1LjIiUyAyNcKwMjMnNDkuMiJF!5e0!3m2!1sen!2sza!4v1"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Baird Medical Centre location map">
+    </iframe>
+    <div class="map-address">
+      <div class="icon">📍</div>
+      <div>
+        <strong>Baird Medical Centre</strong>
+        146 Acacia Street, Rosedale, Uitenhage, Eastern Cape, 6230
+        <br />
+        <a class="directions-btn" href="https://www.google.com/maps/dir/?api=1&destination=146+Acacia+Street+Rosedale+Uitenhage" target="_blank" rel="noopener">
+          🗺 Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointments.html">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0630044">063 004 4</a></li>
+        <li><a href="tel:041988111">041 988 111</a></li>
+        <li><a href="mailto:ikponmwosai185@gmail.com">ikponmwosai185@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Baird Medical Centre. HPCSA Registered Practice. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
