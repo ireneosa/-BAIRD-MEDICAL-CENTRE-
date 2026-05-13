@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment | Baird Medical Centre | Uitenhage</title>
+  <meta name="description" content="Book an appointment at Baird Medical Centre in Rosedale, Uitenhage. Contact us by phone or WhatsApp to schedule your visit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark:  #1C4532;
+      --green-mid:   #276045;
+      --green-light: #D1E8D9;
+      --gold:        #B8960C;
+      --gold-light:  #F0E4A0;
+      --ivory:       #FAF7F2;
+      --ivory-dark:  #EDE8DF;
+      --text-dark:   #1A1A1A;
+      --text-mid:    #3D4D3A;
+      --radius:      6px;
+      --shadow:      0 4px 24px rgba(28,69,50,0.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--ivory); color: var(--text-dark); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    nav { background: var(--green-dark); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.18); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
+    .nav-logo { width: 44px; height: 44px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--green-dark); }
+    .nav-name strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: #fff; }
+    .nav-name span { font-size: 0.72rem; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; }
+    .nav-links { display: flex; }
+    .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.82rem; padding: 10px 14px; border-radius: var(--radius); transition: background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { background: var(--green-mid); color: #fff; }
+    .nav-cta { background: var(--gold); color: var(--green-dark) !important; font-weight: 500; margin-left: 8px; }
+    .nav-cta:hover { background: #d4ab14 !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: var(--green-dark); padding: 12px 5% 20px; }
+    .mobile-menu a { color: rgba(255,255,255,0.9); padding: 10px 0; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
+
+    .page-header { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%); color: #fff; padding: 64px 5% 56px; }
+    .page-header .breadcrumb { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+    .page-header .breadcrumb a { color: var(--gold-light); }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; }
+    .page-header p { margin-top: 10px; color: rgba(255,255,255,0.8); max-width: 520px; font-weight: 300; }
+
+    section { padding: 72px 5%; }
+    .section-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 8px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 600; color: var(--green-dark); line-height: 1.2; margin-bottom: 20px; }
+
+    /* BOOKING OPTIONS */
+    .booking-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 48px; }
+    .booking-card {
+      background: #fff; border-radius: 10px; padding: 32px 28px;
+      text-align: center; box-shadow: var(--shadow);
+      border-top: 3px solid var(--green-light);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .booking-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(28,69,50,0.15); border-top-color: var(--green-mid); }
+    .booking-card .book-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .booking-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--green-dark); margin-bottom: 10px; }
+    .booking-card p { font-size: 0.84rem; color: var(--text-mid); font-weight: 300; margin-bottom: 20px; }
+    .book-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 24px; border-radius: var(--radius); font-size: 0.88rem; font-weight: 500;
+      transition: all 0.2s; width: 100%; justify-content: center;
+    }
+    .book-btn.whatsapp { background: #25D366; color: #fff; }
+    .book-btn.whatsapp:hover { background: #1da355; }
+    .book-btn.phone { background: var(--green-dark); color: #fff; }
+    .book-btn.phone:hover { background: var(--green-mid); }
+    .book-btn.email { background: var(--ivory-dark); color: var(--green-dark); border: 1.5px solid var(--green-light); }
+    .book-btn.email:hover { background: var(--green-light); }
+    .book-btn.walkin { background: var(--gold); color: var(--green-dark); }
+    .book-btn.walkin:hover { background: #d4ab14; }
+
+    /* STEPS */
+    .steps-section { background: var(--ivory-dark); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0; }
+    .step { padding: 32px 24px; position: relative; }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--green-dark); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .step h3 { font-size: 0.95rem; font-weight: 500; color: var(--green-dark); margin-bottom: 6px; }
+    .step p { font-size: 0.82rem; color: var(--text-mid); font-weight: 300; }
+
+    /* HOURS */
+    .hours-inline { background: var(--green-dark); border-radius: 10px; padding: 28px 32px; max-width: 500px; color: #fff; }
+    .hours-inline h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; margin-bottom: 16px; }
+    .hr { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.88rem; }
+    .hr:last-child { border: none; }
+    .hr .d { color: rgba(255,255,255,0.7); }
+    .hr .t { font-weight: 500; }
+    .hr .t.c { color: rgba(255,255,255,0.4); font-style: italic; font-weight: 400; }
+
+    /* WALKIN NOTE */
+    .walkin-note {
+      background: var(--green-light); border-radius: var(--radius);
+      padding: 20px 24px; margin-top: 32px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .walkin-note .ni { font-size: 1.4rem; }
+    .walkin-note p { font-size: 0.88rem; color: var(--green-dark); }
+
+    footer { background: #111D16; color: rgba(255,255,255,0.7); padding: 32px 5% 20px; }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; margin-bottom: 24px; }
+    .footer-links h4 { color: #fff; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px; font-size: 0.75rem; text-align: center; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">B</div>
+    <div class="nav-name">
+      <strong>Baird Medical Centre</strong>
+      <span>Uitenhage · Eastern Cape</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="appointments.html" class="active nav-cta">Book Appointment</a>
+  </div>
+  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="appointments.html">Book Appointment</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Book Appointment</div>
+  <h1>Book Your Appointment</h1>
+  <p>Reach us by WhatsApp, phone, or email — or simply walk in during our operating hours. We're here to help.</p>
+</div>
+
+<section>
+  <div class="section-label">How to Book</div>
+  <h2>Choose How You'd Like to Contact Us</h2>
+  <div class="booking-grid">
+    <div class="booking-card">
+      <div class="book-icon">💬</div>
+      <h3>WhatsApp</h3>
+      <p>The quickest way to reach us. Message us your name, preferred date, and the service you need.</p>
+      <a class="book-btn whatsapp" href="https://wa.me/270630044?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Baird%20Medical%20Centre.">💬 WhatsApp Us</a>
+    </div>
+    <div class="booking-card">
+      <div class="book-icon">📞</div>
+      <h3>Phone Call</h3>
+      <p>Call us directly during operating hours and our team will assist you with scheduling.</p>
+      <a class="book-btn phone" href="tel:0630044">📞 063 004 4</a>
+      <a class="book-btn phone" href="tel:041988111" style="margin-top:8px">📞 041 988 111</a>
+    </div>
+    <div class="booking-card">
+      <div class="book-icon">📧</div>
+      <h3>Email</h3>
+      <p>Send us an email with your preferred appointment time and we will confirm within one business day.</p>
+      <a class="book-btn email" href="mailto:ikponmwosai185@gmail.com?subject=Appointment%20Request%20-%20Baird%20Medical%20Centre">✉ Send Email</a>
+    </div>
+    <div class="booking-card">
+      <div class="book-icon">🚶</div>
+      <h3>Walk In</h3>
+      <p>No appointment needed for most services. Visit us during operating hours and you'll be seen in turn.</p>
+      <a class="book-btn walkin" href="contact.html">📍 Find Us</a>
+    </div>
+  </div>
+
+  <!-- HOURS & WALKIN NOTE -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+    <div>
+      <div class="hours-inline">
+        <h3>⏱ Operating Hours</h3>
+        <div class="hr"><span class="d">Monday – Friday</span><span class="t">09:00 – 17:00</span></div>
+        <div class="hr"><span class="d">Saturday</span><span class="t">09:00 – 13:00</span></div>
+        <div class="hr"><span class="d">Sunday</span><span class="t c">Closed</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="walkin-note">
+        <div class="ni">✚</div>
+        <p><strong>Walk-ins Welcome.</strong> You do not need an appointment to visit Baird Medical Centre. Simply arrive during our operating hours. For PDP assessments, SASSA Disability Grant assessments, or Pre-Marital consultations, please call ahead to confirm doctor availability.</p>
+      </div>
+      <div class="walkin-note" style="margin-top:12px;background:#fff;border:1.5px solid var(--green-light)">
+        <div class="ni">🩺</div>
+        <p><strong>Free Blood Pressure Check:</strong> Available at all times during operating hours. No appointment or referral needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="steps-section">
+  <div class="section-label" style="padding:0 0 0 0">How It Works</div>
+  <h2>Your Visit in 4 Steps</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h3>Contact Us</h3><p>Call, WhatsApp, email, or walk in to register your appointment request.</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Confirmation</h3><p>We'll confirm your appointment slot and let you know what to bring if anything is required.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Your Visit</h3><p>Arrive at Baird Medical Centre and check in with our reception team.</p></div>
+    <div class="step"><div class="step-num">4</div><h3>Your Care Plan</h3><p>See the doctor and leave with a clear, personalised care plan tailored to your needs.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointments.html">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0630044">063 004 4</a></li>
+        <li><a href="tel:041988111">041 988 111</a></li>
+        <li><a href="mailto:ikponmwosai185@gmail.com">ikponmwosai185@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Baird Medical Centre. HPCSA Registered Practice. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
