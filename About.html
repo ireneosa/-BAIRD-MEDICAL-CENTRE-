@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Baird Medical Centre | Uitenhage</title>
+  <meta name="description" content="Learn about Baird Medical Centre in Rosedale, Uitenhage — our doctor, qualifications, and our commitment to compassionate patient care." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark:  #1C4532;
+      --green-mid:   #276045;
+      --green-light: #D1E8D9;
+      --gold:        #B8960C;
+      --gold-light:  #F0E4A0;
+      --ivory:       #FAF7F2;
+      --ivory-dark:  #EDE8DF;
+      --text-dark:   #1A1A1A;
+      --text-mid:    #3D4D3A;
+      --text-light:  #FFFFFF;
+      --radius:      6px;
+      --shadow:      0 4px 24px rgba(28,69,50,0.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--ivory); color: var(--text-dark); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      background: var(--green-dark); padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; padding: 14px 0; }
+    .nav-logo { width: 44px; height: 44px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--green-dark); }
+    .nav-name strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: #fff; }
+    .nav-name span { font-size: 0.72rem; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 0; }
+    .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.82rem; letter-spacing: 0.5px; padding: 10px 14px; border-radius: var(--radius); transition: background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { background: var(--green-mid); color: #fff; }
+    .nav-cta { background: var(--gold); color: var(--green-dark) !important; font-weight: 500; border-radius: var(--radius); margin-left: 8px; }
+    .nav-cta:hover { background: #d4ab14 !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: var(--green-dark); padding: 12px 5% 20px; }
+    .mobile-menu a { color: rgba(255,255,255,0.9); padding: 10px 0; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      color: #fff; padding: 64px 5% 56px;
+    }
+    .page-header .breadcrumb { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+    .page-header .breadcrumb a { color: var(--gold-light); }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; }
+    .page-header p { margin-top: 10px; color: rgba(255,255,255,0.8); max-width: 520px; font-weight: 300; }
+
+    section { padding: 72px 5%; }
+    .section-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 8px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 600; color: var(--green-dark); line-height: 1.2; margin-bottom: 16px; }
+    h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--green-dark); margin-bottom: 10px; }
+
+    /* DOCTOR SECTION */
+    .doctor-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 56px; align-items: start; }
+    .doctor-card {
+      background: var(--green-dark); border-radius: 12px;
+      padding: 36px 28px; color: #fff; text-align: center;
+    }
+    .doctor-avatar {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: var(--gold); margin: 0 auto 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--green-dark);
+    }
+    .doctor-card .name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #fff; margin-bottom: 4px; }
+    .doctor-card .qual { font-size: 0.8rem; color: var(--gold-light); margin-bottom: 18px; line-height: 1.5; }
+    .reg-item { background: rgba(255,255,255,0.08); border-radius: var(--radius); padding: 10px 14px; margin-bottom: 8px; text-align: left; }
+    .reg-item .reg-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.55); margin-bottom: 2px; }
+    .reg-item .reg-val { font-size: 0.88rem; font-weight: 500; }
+    .doctor-bio p { color: var(--text-mid); margin-bottom: 16px; font-weight: 300; }
+
+    /* VALUES */
+    .values-bg { background: var(--ivory-dark); }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .value-card { background: #fff; border-radius: var(--radius); padding: 28px 22px; box-shadow: var(--shadow); }
+    .value-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .value-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .value-card p { font-size: 0.84rem; color: var(--text-mid); font-weight: 300; }
+
+    /* MISSION */
+    .mission-block {
+      max-width: 720px; margin: 0 auto; text-align: center;
+    }
+    .mission-block blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-style: italic;
+      color: var(--green-dark); line-height: 1.45; margin-bottom: 20px;
+      border-left: 3px solid var(--gold); padding-left: 24px; text-align: left;
+    }
+
+    /* CTA */
+    .cta-banner { background: var(--green-dark); color: #fff; text-align: center; padding: 64px 5%; }
+    .cta-banner h2 { color: #fff; margin-bottom: 12px; }
+    .cta-banner p { color: rgba(255,255,255,0.8); max-width: 480px; margin: 0 auto 32px; font-weight: 300; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .btn-primary { background: var(--gold); color: var(--green-dark); padding: 13px 28px; border-radius: var(--radius); font-weight: 500; font-size: 0.92rem; transition: background 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary:hover { background: #d4ab14; }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,0.5); color: #fff; padding: 13px 28px; border-radius: var(--radius); font-size: 0.92rem; transition: border-color 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    footer { background: #111D16; color: rgba(255,255,255,0.7); padding: 32px 5% 20px; }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; margin-bottom: 24px; }
+    .footer-links h4 { color: #fff; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px; font-size: 0.75rem; text-align: center; }
+
+    @media (max-width: 768px) { .doctor-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">B</div>
+    <div class="nav-name">
+      <strong>Baird Medical Centre</strong>
+      <span>Uitenhage · Eastern Cape</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="appointments.html" class="nav-cta">Book Appointment</a>
+  </div>
+  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="appointments.html">Book Appointment</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
+  <h1>About Baird Medical Centre</h1>
+  <p>A trusted general practice committed to your health and well-being in Rosedale, Uitenhage.</p>
+</div>
+
+<!-- DOCTOR SECTION -->
+<section>
+  <div class="doctor-grid">
+    <div class="doctor-card">
+      <div class="doctor-avatar">I</div>
+      <div class="name">Dr I. Irene</div>
+      <div class="qual">MBBS (Benin) · MSc (Med) UTC<br />General Medical Practitioner</div>
+      <div class="reg-item"><div class="reg-label">HPCSA Registration</div><div class="reg-val">MP 0718181</div></div>
+      <div class="reg-item"><div class="reg-label">Practice Number</div><div class="reg-val">1232126</div></div>
+      <div class="reg-item"><div class="reg-label">Practice</div><div class="reg-val">Baird Medical Centre</div></div>
+    </div>
+    <div class="doctor-bio">
+      <div class="section-label">Our Doctor</div>
+      <h2>Meet Dr I. Irene</h2>
+      <p>Dr I. Irene is a fully registered general medical practitioner with the Health Professions Council of South Africa (HPCSA). Holding an MBBS from the University of Benin and an MSc (Med) with UTC, Dr Irene brings a breadth of knowledge and a genuine commitment to patient care.</p>
+      <p>With qualifications spanning medicine and healthcare management, Dr Irene is equipped to manage a wide range of primary care conditions — from acute illnesses to chronic disease management, antenatal care, occupational health assessments, and more.</p>
+      <p>At Baird Medical Centre, every patient is seen as an individual. Dr Irene takes the time to listen, assess, and tailor each care plan to the patient's unique needs — because good medicine is personal medicine.</p>
+      <p>Baird Medical Centre is registered and regulated by the HPCSA, ensuring that all services meet the highest standards of clinical practice and professional ethics.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section>
+  <div class="mission-block">
+    <div class="section-label">Our Mission</div>
+    <blockquote>"To provide compassionate, high-quality primary healthcare that empowers patients and strengthens the health of our community in Uitenhage and beyond."</blockquote>
+    <p style="color:var(--text-mid);font-weight:300">We believe that access to quality healthcare is a right, not a privilege. Baird Medical Centre is here to make that a reality for every patient we serve.</p>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-bg">
+  <div class="section-label">Our Values</div>
+  <h2>What We Stand For</h2>
+  <div class="values-grid" style="margin-top:32px">
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <h3>Compassion</h3>
+      <p>We treat every patient with dignity, empathy, and genuine care for their well-being.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🎯</div>
+      <h3>Excellence</h3>
+      <p>We maintain the highest standards of clinical practice, informed by current evidence and continuing education.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔒</div>
+      <h3>Confidentiality</h3>
+      <p>All patient information is treated with the strictest confidence in accordance with POPIA and HPCSA guidelines.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🌍</div>
+      <h3>Accessibility</h3>
+      <p>We are committed to making quality healthcare accessible to individuals and families across our community.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Experience the Difference</h2>
+  <p>Book your appointment at Baird Medical Centre today and take the first step toward better health.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/270630044" class="btn-primary">💬 WhatsApp Us</a>
+    <a href="appointments.html" class="btn-outline">Book Appointment →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointments.html">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0630044">063 004 4</a></li>
+        <li><a href="tel:041988111">041 988 111</a></li>
+        <li><a href="mailto:ikponmwosai185@gmail.com">ikponmwosai185@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Baird Medical Centre. HPCSA Registered Practice. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
